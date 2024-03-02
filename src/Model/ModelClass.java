@@ -13,6 +13,7 @@ public class ModelClass implements iGetModel {
 
     /**
      * Конструктор класса ModelClass.
+     *
      * @param students список студентов.
      */
     public ModelClass(List<Student> students) {
@@ -20,24 +21,30 @@ public class ModelClass implements iGetModel {
     }
 
     /**
-     * @apiNote Метод для получения списка студентов.
      * @return список студентов.
+     * @apiNote Метод для получения списка студентов.
      */
     public List<Student> getAllStudents() {
         return students;
     }
 
     /**
+     * @param studentId индекс студента в списке для удаления.
+     * @return true/false определяющее наличие студента по индексу в списке.
      * @apiNote Метод для удаления студента по индексу.
-     * @param studentIndex индекс студента в списке для удаления.
      */
     @Override
-    public void deleteStudent(int studentIndex) {
-        if (studentIndex < students.size()) {
-            students.remove(studentIndex);
+    public boolean deleteStudent(int studentId) {
+        boolean studentExist = false;
+        for (int i = 0; i < students.size(); i++) {
+            Student student = students.get(i);
+            if (student.getId() == studentId) {
+                studentExist = true;
+                students.remove(i);
+                break;
+            }
         }
-        else {
-            System.out.println("Такого пользователя не существует.");
-        }
+        return studentExist;
+
     }
 }

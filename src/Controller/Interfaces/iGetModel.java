@@ -15,8 +15,9 @@ public interface iGetModel {
     public List<Student> getAllStudents();
 
     /**
+     * @param studentId индекс студента в списке для удаления.
+     * @return
      * @apiNote Метод удаления студента из списка по индексу.
-     * @param studentIndex индекс студента в списке для удаления.
      */
-    public void deleteStudent(int studentIndex);
+    public boolean deleteStudent(int studentId);
 }

@@ -65,10 +65,11 @@ public class ControllerClass {
                     view.printAllStudents(model.getAllStudents());
                     break;
                 case DELETE:
-                    System.out.println("Введите номер студента для удаления: ");
+                    System.out.println("Введите id студента для удаления: ");
                     Scanner scanner = new Scanner(System.in);
-                    int studentNumber = scanner.nextInt();
-                    model.getAllStudents();
+                    int studentId = scanner.nextInt();
+                    if (model.deleteStudent(studentId)) System.out.println("Студент с id " + studentId + " удален.");
+                    else System.out.println("Студент с id " + studentId + " отсутствует.");
                     break;
             }
         }

@@ -4,7 +4,9 @@ import Controller.Interfaces.iGetView;
 import Model.Domain.Student;
 import Model.FileModelClass;
 import Model.ModelClass;
+import Model.ModelClassHash;
 import View.ViewClass;
+import View.ViewClassEng;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +38,12 @@ public class Main {
         FileModelClass fileModelClass = new FileModelClass("studentDB.csv");
         //fileModelClass.saveAllStudents(studentList);
         iGetView view = new ViewClass();
+        iGetView view1 = new ViewClassEng();
         iGetModel model = new ModelClass(studentList);
+        iGetModel model1 = new ModelClassHash(studentList);
         ControllerClass controller = new ControllerClass(fileModelClass, view);
         // controller.update();
         controller.run();
+
     }
 }
